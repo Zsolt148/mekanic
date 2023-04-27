@@ -1,0 +1,37 @@
+.status-ok {
+    width: 14px;
+    height: 14px;
+    background: #8fc562;
+    border-radius: 100%;
+}
+
+.status-not-ok {
+    width: 14px;
+    height: 14px;
+    background: #c56962;
+    border-radius: 100%;
+}
+
+.inverter-status {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.leave--status {
+    &.done {
+        color: green;
+    }
+
+    &.not_started {
+        color: yellow;
+    }
+
+    &.in_progress {}
+
+    &.rejected {
+        color: red;
+    }
+
+    &.waiting_for_approve {}
+}

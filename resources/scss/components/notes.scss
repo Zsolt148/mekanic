@@ -1,0 +1,37 @@
+.note {
+    &__table{
+        padding: 18px;
+    }
+    
+    &__row {
+        min-height: 34px;
+    }
+
+    &__title {
+        width: 50%;
+        cursor: pointer;
+        vertical-align: top;
+        height: 34px !important;
+        padding: 5px 0 !important;
+        padding: 12px 7px!important;
+
+        p{
+            font-size: 14px!important;
+            margin-bottom: 0!important;
+            line-height: 20px;
+            letter-spacing: 0.1px;
+            text-decoration-line: underline;
+            color: $blue_primary;
+        }
+    }
+
+    &__value {
+        padding: 12px 7px!important;
+        height: 34px !important;
+
+        p{
+            font-size: 14px!important;
+            margin-bottom: 0!important;
+        }
+    }
+}

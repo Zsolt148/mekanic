@@ -1,0 +1,115 @@
+.list-items {
+    background: #eff1f2;
+    padding: 12px 18px !important;
+    border-radius: 4px;
+    margin-bottom: 9px;
+}
+
+.overview{
+    &-current{
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 28px;
+        color: #191c1d;
+        margin-bottom: 0 !important;
+    }
+
+    &-p{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px !important;
+    }
+}
+
+.weather{
+    &-title{
+        background: #eff1f2;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 18px;
+        margin: 0 18px 18px !important;
+
+        h1{
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 28px;
+            margin: 0;
+        }
+    }
+    &-value{
+        font-weight: bold;
+        margin-bottom: 0px !important;
+        font-size: 18px;
+        line-height: 28px;
+        color: #191c1d;
+    }
+    &-key{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        margin-bottom: 0;
+        color: #40484b;
+    }
+    &-box{
+        @include flex-center;
+        @include flex-column;
+        text-align: center;
+
+        svg{
+            margin-bottom: 9px !important;
+        }
+    }
+}
+
+.blue-card{
+    height: 275px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    background: white !important;
+
+    h1{
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        color: #40484b;
+        margin-bottom: 4px !important;
+    }
+
+    p{
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.4px;
+        color: #40484b;
+        margin-bottom: 4px !important;
+    }
+}
+
+.custom-divider {
+    height: 83px;
+    background: #dbe4e8;
+    width: 1px !important;
+    margin: 1px;
+    padding: 0.5px;
+}
+
+
+.custom-divider-small {
+    height: 83px;
+    background: #dbe4e8;
+    width: 1px !important;
+    margin: 1px;
+    padding: 0.5px;
+}

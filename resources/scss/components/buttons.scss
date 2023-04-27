@@ -1,0 +1,193 @@
+.button {
+    @include flex-center;
+    font-size: 14px;
+    outline: none;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    user-select: none;
+    line-height: 20px;
+    height: 40px;
+    background-position: center;
+    transition: background 0.8s;
+
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    &__main {
+        background: $blue_primary;
+
+        &:hover {
+            background: #2d8497
+                radial-gradient(circle, transparent 1%, #2299b4 1%)
+                center/15000%;
+        }
+
+        &:active {
+            background-color: #288296;
+            background-size: 100%;
+            transition: background 0s;
+        }
+
+        &-red {
+            background: $red_primary;
+
+            &:hover {
+                background: $red_primary
+                    radial-gradient(circle, transparent 1%, $red_primary 1%)
+                    center/15000%;
+            }
+
+            &:active {
+                background-color: $red_primary;
+                background-size: 100%;
+                transition: background 0s;
+            }
+        }
+    }
+
+    &__secondary {
+        color: $blue_primary;
+        border: 2px solid $blue_primary;
+        background: transparent;
+
+        &:hover {
+            color: $blue_primary;
+        }
+        &-red {
+            color: $red_primary;
+            border: 2px solid $red_primary;
+            background: transparent;
+
+            &:hover {
+                color: $red_primary;
+            }
+        }
+    }
+
+    &__trimary {
+        color: $blue_primary;
+        border: none;
+        background: #d9f5ff;
+
+        &:hover {
+            color: $blue_primary;
+        }
+    }
+
+    &__dropdown {
+    }
+
+    &__link {
+        font-size:14px;
+        height: auto !important;
+        color: $blue_primary;
+        justify-content: start;
+        padding: 0;
+        text-decoration: underline;
+
+        &:hover {
+            color: $blue_primary;
+        }
+    }
+
+    // Custom buttons
+
+    &__tv {
+        @include flex-center;
+        color: $blue_primary !important;
+        letter-spacing: 0.1px;
+        line-height: 20px;
+        gap: 8px;
+
+        &:hover {
+            color: $blue_primary;
+        }
+    }
+
+    &__unreads {
+        @include flex-center;
+        padding: 4px 12px;
+        //height: 28px !important;
+        color: $blue_primary !important;
+        background: $blue_trimary;
+        letter-spacing: 0.1px;
+        line-height: 20px;
+        gap: 8px;
+
+        @media #{$bp-mobile} {
+            min-width: 160px;
+        }
+
+        &:hover {
+            color: $blue_primary;
+        }
+
+        &.inactive {
+            background: #fafcfd;
+            color: #40484b !important;
+            border: 1px solid #6f787c;
+
+            path {
+                fill: #dbe4e8;
+            }
+        }
+    }
+
+    &__spam {
+        @include flex-center;
+        padding: 4px 12px;
+        height: 40px !important;
+        color: #001f28 !important;
+        background: transparent;
+        letter-spacing: 0.1px;
+        line-height: 20px;
+        border: 2px solid #001f28;
+
+        &:hover {
+            color: $blue_primary;
+        }
+    }
+
+    &__refresh {
+        @include flex-center;
+        padding: 0;
+        background: #fafcfd;
+        border: 1px solid #6f787c;
+        box-sizing: border-box;
+        border-radius: 4px;
+        background: white;
+        width: 28px !important;
+        height: 28px !important;
+        
+        &-text{
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 0!important;
+            letter-spacing: 0.1px;
+            color: #40484b;
+        }
+
+        &-container{
+            @include flex-start;
+            gap: 8px;
+        }
+    }
+
+    &-edit-park{
+        background: #d9f5ff !important;
+        background-color: #d9f5ff !important;
+        color: #00677d !important;
+    }
+}
+
+.button--show-pwd{
+    color: #00677D!important;
+    background-color: #D9F5FF!important;
+}

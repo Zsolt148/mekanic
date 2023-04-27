@@ -1,0 +1,32 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite --config=vite.config.js",
+        "build": "vite build --config=vite.config.js"
+    },
+    "devDependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue": "^0.8.0",
+        "@inertiajs/progress": "^0.2.7",
+        "@vitejs/plugin-vue2": "^1.1.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^0.27",
+        "deepmerge": "^4.2.2",
+        "laravel-vite-plugin": "^0.3.0",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.6",
+        "sass": "~1.32",
+        "sass-loader": "^13.0.2",
+        "vite": "^2.9.14",
+        "vue": "^2.7.5"
+    },
+    "dependencies": {
+        "@inertiajs/server": "^0.1.0",
+        "@mdi/font": "^6.9.96",
+        "@popperjs/core": "^2.11.6",
+        "moment": "^2.29.4",
+        "v-mask": "^2.3.0",
+        "vue-server-renderer": "^2.7.10",
+        "vuetify": "^2.6.10"
+    }
+}

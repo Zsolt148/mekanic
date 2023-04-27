@@ -1,0 +1,75 @@
+.tv {
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
+    &__date {
+        font-style: normal;
+        font-weight: normal;
+        margin-bottom: 0;
+        font-size: 22px;
+        line-height: 28px;
+        color: #40484b;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__body {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__rectangle {
+        height: 35px;
+        width: 35px;
+        border-radius: 4px;
+        margin-right: 8px;
+        margin-bottom: 10px;
+        background: gray;
+        &.active {
+            background: #8fc562;
+        }
+        &.error {
+            background: #f36056;
+        }
+        &.warning {
+            background: #fdc130;
+        }
+    }
+
+    &__footer {
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        &-element {
+            margin-top: 16px;
+            display: flex;
+            gap: 18px;
+            p{
+                @include flex-center;
+                gap: 6.5px;
+            }
+        }
+    }
+
+    &__sum{
+        justify-content: end;
+
+        @media #{$bp-mobile} {
+            justify-content: start;
+        }
+    }
+}
+
+.insideLabel {
+    display: none !important;
+}

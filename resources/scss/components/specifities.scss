@@ -1,0 +1,23 @@
+.specifities__table table tbody tr td {
+    vertical-align: baseline !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+}
+.specifity__row {
+    min-height: 34px;
+}
+.specifity__title {
+    width: 50%;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+    color: $blue_primary;
+    height: 34px !important;
+    padding: 5px 0 !important;
+    cursor: pointer;
+}
+.specifity__value {
+    height: 34px !important;
+}

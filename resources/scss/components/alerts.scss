@@ -1,0 +1,104 @@
+.alert {
+    @include flex-between();
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+    svg {
+        margin-right: 10px;
+    }
+
+    &.blocked {
+        border: 1px solid rgba(186, 27, 27, 0.12) !important;
+        background: rgba(186, 27, 27, 0.08) !important;
+    }
+
+    &.spam {
+        border-radius: 0 !important;
+        border: none;
+        background: #fdc130;
+
+        .alert__text {
+            font-size: 14px;
+            margin: 0;
+            line-height: 20px;
+            letter-spacing: 0.1px;
+            color: #191c1d;
+        }
+    }
+
+    &.pending {
+        background: white !important;
+        border: 1px solid #dbe4e8 !important;
+    }
+
+    &__status {
+        font-size: 14px;
+        margin-right: 10px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        color: #40484b;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        color: #40484b;
+    }
+
+    &__link {
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.25px;
+        text-decoration-line: underline;
+
+        a {
+            color: #00677d !important;
+        }
+    }
+
+    &-empty {
+        @include flex-start();
+        height: 60px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        padding: 20px;
+        color: #40484b;
+        border: 2px dashed #dbe4e8;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        svg {
+            margin-right: 12px;
+        }
+    }
+}
+
+.success {
+    &--alert {
+        background: #00A04A !important;
+        padding: 20px !important;
+        border-radius: 4px !important;
+        height: 60px;
+        display: flex!important;
+        align-items: center;
+
+        &-text {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 0px!important;
+            color: white!important;
+        }
+    }
+}

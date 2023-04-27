@@ -1,0 +1,53 @@
+.story--card {
+    &-data {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: #191C1D;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .responsible {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+            color: #191C1D;
+        }
+
+        .role {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.25px;
+            color: #40484B;
+        }
+
+        .hour {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.25px;
+            color: #40484B;
+        }
+
+        &-button{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        p {
+            margin-bottom: 0px !important;
+        }
+    }
+}

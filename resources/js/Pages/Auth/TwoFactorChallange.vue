@@ -7,15 +7,7 @@
                 <div class="auth-inner">
                     <v-card elevation="4" class="auth-card">
                         <v-card-title class="d-flex align-center justify-center py-7">
-                            <v-img
-                                :src="logo.white"
-                                style="filter:invert(1) hue-rotate(239deg);"
-                                max-height="80px"
-                                max-width="auto"
-                                alt="logo"
-                                contain
-                                class="mb-3"
-                            ></v-img>
+                            <v-icon large dark>mdi-car-cog</v-icon>
                         </v-card-title>
 
                         <v-card-text>
@@ -76,8 +68,6 @@
 
 <script>
 import AuthLayout from "@/Layouts/AuthLayout";
-import logoWhite from 'img/prokativ-logo.png'
-import logoDark from 'img/prokativ-logo.png'
 
 export default {
     components: {
@@ -87,10 +77,6 @@ export default {
     data() {
         return {
             recovery: false,
-            logo: {
-                white: logoWhite,
-                dark: logoDark
-            },
             form: this.$inertia.form({
                 code: '',
                 recovery_code: '',

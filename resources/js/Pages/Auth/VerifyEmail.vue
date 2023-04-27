@@ -6,20 +6,12 @@
                 <div class="auth-inner">
                     <v-card elevation="4" class="auth-card">
                         <v-card-title class="d-flex align-center justify-center py-7">
-                            <v-img
-                                :src="logo.white"
-                                style="filter:invert(1) hue-rotate(239deg);"
-                                max-height="80px"
-                                max-width="auto"
-                                alt="logo"
-                                contain
-                                class="mb-3"
-                            ></v-img>
+                            <v-icon large dark>mdi-car-cog</v-icon>
                         </v-card-title>
 
                         <v-card-text>
                             <p class="text-h5 font-weight-semibold mb-1">
-                                {{ trans("Welcome to xtracms! 👋🏻") }}
+                                {{ trans("Welcome to mekanic! 👋🏻") }}
                             </p>
                             <p class="mb-2">
                                 {{ trans("Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.") }}
@@ -48,8 +40,6 @@
 
 <script>
     import AuthLayout from "@/Layouts/AuthLayout";
-    import logoWhite from 'img/prokativ-logo.png'
-    import logoDark from 'img/prokativ-logo.png'
 
     export default {
         components: {
@@ -66,10 +56,6 @@
                 logoutForm: this.$inertia.form({
                     method: '_POST',
                 }),
-                logo: {
-                    white: logoWhite,
-                    dark: logoDark
-                },
             }
         },
 

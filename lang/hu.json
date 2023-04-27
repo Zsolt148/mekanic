@@ -4,7 +4,6 @@
     "Login": "Bejelentkezés",
     "Username": "Felhasználónév",
     "Please sign-in to your account": "Lépj be a fiókodba",
-    "Welcome to xtracms! 👋🏻": "Üdv az xtracms-ben! 👋🏻",
     "Create your account" : "Hozd létre fiókodat",
     "Reset password": "Jelszó visszaállítása",
     "Create and login": "Létrehozás és bejelentkezés",
@@ -201,7 +200,6 @@
     "Contact name": "Kapcsolattartási név",
     "Contact email": "Kapcsolattartási email",
     "Contact phone": "Kapcsolattartási telefon",
-    "Xtracms uses this to contact you": "Az Xtracms ezt az e-mailt használja az Önnel való kapcsolatfelvételhez",
     "Fill out these informations so that visitors can reach out": "Töltse ki ezeket az információkat, hogy a látogatók elérhessék Önt",
     "Business informations": "Üzleti információk",
 

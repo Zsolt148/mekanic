@@ -73,8 +73,6 @@
 
 <script>
 import AuthLayout from "@/Layouts/AuthLayout.vue";
-import logoWhite from 'img/prokativ-logo.png'
-import logoDark from 'img/prokativ-logo.png'
 
 export default {
     name: "ResetPassword",
@@ -89,10 +87,6 @@ export default {
         return {
             show: false,
             isPasswordVisible: false,
-            logo: {
-                white: logoWhite,
-                dark: logoDark
-            },
             form: this.$inertia.form({
                 token: this.token,
                 email: this.email,

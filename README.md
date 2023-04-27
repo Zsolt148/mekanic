@@ -1,4 +1,4 @@
-# PROAKTIV development guide #
+# MEKANIC development guide #
 
 ### Configuration ###
 

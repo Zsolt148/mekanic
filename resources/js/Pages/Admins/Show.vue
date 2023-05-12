@@ -60,13 +60,6 @@ export default {
                 status: this.user.status,
                 roles: this.user.roleText,
                 permissions: this.user.permissionText,
-                supervisor_id: this.user.supervisor_id,
-                mothers_name: this.user.mothers_name,
-                mothers_maiden_name: this.user.mothers_maiden_name,
-                birth_date: this.user.birth_date,
-                child_count: this.user.child_count,
-                position: this.user.position ? this.user.position : {},
-                skills: this.user.skills ? this.user.skills : {},
             }),
         };
     },

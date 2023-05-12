@@ -145,19 +145,11 @@ export default {
         return {
             activePicker: null,
             date: null,
-            startOfEmploymentMenu: false,
-            endOfEmploymentMenu: false,
         }
     },
 
     methods: {
-        saveStartOfEmployment (date) {
-            this.$refs.startOfEmploymentMenu.save(date)
-        },
-        
-        saveEndOfEmployment (date) {
-            this.$refs.endOfEmploymentMenu.save(date)
-        },
+
     },
 
     props: {

@@ -104,17 +104,11 @@ export default {
                 photo: this.user.photo,
                 profile_photo_path: this.user.profile_photo_path,
                 trashed: this.user.trashed,
-                supervisor_id: this.user.supervisor_id,
                 name: this.user.name,
                 email: this.user.email,
                 status: this.user.status,
                 roles: this.user.roleIds,
                 permissions: this.user.permissionIds,
-                occupation_type: this.user.occupation_type,
-                start_of_employment: this.user.start_of_employment,  
-                end_of_employment: this.user.end_of_employment,  
-                position: Object.assign({}, this.user.position),
-                skills: Object.assign({}, this.user.skills),
             }),
 
             reinviteForm: this.$inertia.form({

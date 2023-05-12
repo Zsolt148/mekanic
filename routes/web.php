@@ -6,7 +6,6 @@ use App\Http\Controllers\AdminProxyController;
 use App\Http\Controllers\AdminSearchController;
 use App\Http\Controllers\Api\AppSiteSearchController;
 use App\Http\Controllers\Api\TagSearchController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomingInvoiceController;
 use App\Http\Controllers\LogController;
@@ -23,7 +22,7 @@ Route::post('admins/{admin}/unblock', [AdminController::class, 'unblock'])->name
 Route::patch('admins/{admin}/restore', [AdminController::class, 'restore'])->name('admins.restore');
 Route::delete('admins/{admin}/force-delete', [AdminController::class, 'forceDelete'])->name('admins.force-delete');
 Route::delete('admins/{admin}/delete-photo', [AdminController::class, 'deletePhoto'])->name('admins.deletePhoto');
-Route::resource('admins', AdminController::class);
+Route::resource('admins', AdminController::class)->only('');
 
 // Invoices
 Route::delete('incoming/{incoming}/force-delete', [IncomingInvoiceController::class, 'forceDelete'])->withTrashed()->name('incoming.force-delete');
@@ -33,10 +32,6 @@ Route::resource('incoming', IncomingInvoiceController::class)->only('index', 'cr
 Route::delete('invoices/{invoice}/force-delete', [InvoiceController::class, 'forceDelete'])->withTrashed()->name('invoices.force-delete');
 Route::patch('invoices/{invoice}/restore', [InvoiceController::class, 'restore'])->withTrashed()->name('invoices.restore');
 Route::resource('invoices', InvoiceController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
-
-Route::resource('checkout', CheckoutController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
-Route::delete('checkout/{checkout}/force-delete', [CheckoutController::class, 'forceDelete'])->withTrashed()->name('checkout.force-delete');
-Route::patch('checkout/{checkout}/restore', [CheckoutController::class, 'restore'])->withTrashed()->name('checkout.restore');
 
 if(AdminFeatures::hasLogs()) {
 	Route::resource('logs', LogController::class)->only('index');

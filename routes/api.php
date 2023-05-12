@@ -10,4 +10,3 @@ Route::get('logs/table', LogTableController::class)->name('logs.table');
 
 Route::get('incoming/table', [IncomingInvoiceController::class, 'getTableData'])->name('incoming.table');
 Route::get('invoices/table', [InvoiceController::class, 'getTableData'])->name('invoices.table');
-Route::get('checkout/table', [CheckoutController::class, 'getTableData'])->name('checkout.table');

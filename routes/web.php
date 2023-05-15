@@ -22,7 +22,7 @@ Route::post('admins/{admin}/unblock', [AdminController::class, 'unblock'])->name
 Route::patch('admins/{admin}/restore', [AdminController::class, 'restore'])->name('admins.restore');
 Route::delete('admins/{admin}/force-delete', [AdminController::class, 'forceDelete'])->name('admins.force-delete');
 Route::delete('admins/{admin}/delete-photo', [AdminController::class, 'deletePhoto'])->name('admins.deletePhoto');
-Route::resource('admins', AdminController::class)->only('');
+Route::resource('admins', AdminController::class);
 
 // Invoices
 Route::delete('incoming/{incoming}/force-delete', [IncomingInvoiceController::class, 'forceDelete'])->withTrashed()->name('incoming.force-delete');

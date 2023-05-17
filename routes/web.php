@@ -44,3 +44,4 @@ Route::get('admins-search', AdminSearchController::class)->name('admins.search')
 
 // Tags search - TagCombobox.vue
 Route::get('/tags/search/{locale}/{type?}', TagSearchController::class)->name('tags.search');
+

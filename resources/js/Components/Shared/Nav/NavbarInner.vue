@@ -111,6 +111,13 @@ export default {
                     show: true
                 },
                 {
+                    title: 'Cars',
+                    icon: 'mdi-car',
+                    route: this.route('cars.index'),
+                    url: '/cars',
+                    show: true
+                },
+                {
                     title: 'Logs',
                     icon: 'mdi-note-multiple',
                     route: this.route('logs.index'),

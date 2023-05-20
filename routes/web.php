@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomingInvoiceController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('app/search', AppSiteSearchController::class)->name('app.search');
@@ -32,6 +33,11 @@ Route::resource('incoming', IncomingInvoiceController::class)->only('index', 'cr
 Route::delete('invoices/{invoice}/force-delete', [InvoiceController::class, 'forceDelete'])->withTrashed()->name('invoices.force-delete');
 Route::patch('invoices/{invoice}/restore', [InvoiceController::class, 'restore'])->withTrashed()->name('invoices.restore');
 Route::resource('invoices', InvoiceController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
+
+//Cars
+Route::delete('cars/force-delete', [CarController::class, 'forceDelete'])->withTrashed()->name('cars.force-delete');
+Route::patch('cars/restore', [CarController::class, 'restore'])->withTrashed()->name('cars.restore');
+Route::resource('cars', CarController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
 
 if(AdminFeatures::hasLogs()) {
 	Route::resource('logs', LogController::class)->only('index');

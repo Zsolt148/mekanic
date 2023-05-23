@@ -70,17 +70,14 @@
                         name="zip"
                         filled />
                 </v-col>
-    
+
                 <v-col cols="12">
-                    <v-select
+                    <v-text-field
                         v-model="form.city"
-                        :disabled="disabled || isCititesDisabled"
+                        :disabled="disabled"
                         :error-messages="form.errors.city"
                         :label="trans('City') + '*'"
-                        :items="cities"
-                        item-text="name"
                         hide-details="auto"
-                        dense
                         name="city"
                         filled />
                 </v-col>
@@ -294,7 +291,6 @@ export default {
             menu1: false,
             menu2: false,
             menu3: false,
-            cities: [],
         };
     },
 

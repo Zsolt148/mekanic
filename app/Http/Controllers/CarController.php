@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CarRequest;
 use App\Http\Resources\CarResource;
 use App\Models\Car;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Partner;

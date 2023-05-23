@@ -327,8 +327,8 @@ export default {
             }
         },
     },
-watch: {
-    partnerSearch(val) {
+    watch: {
+        partnerSearch(val) {
             // search input is empty
             if (!val) return;
 

@@ -104,6 +104,13 @@ export default {
                 //     show: true
                 // },
                 {
+                    title: 'Munkalapok',
+                    icon: 'mdi-clipboard-text-outline',
+                    route: this.route('worksheets.index'),
+                    url: '/worksheets',
+                    show: true
+                },
+                {
                     title: 'Számlák',
                     icon: 'mdi-receipt',
                     route: this.route('invoices.index'),

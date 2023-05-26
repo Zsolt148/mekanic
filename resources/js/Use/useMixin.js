@@ -40,7 +40,7 @@ export default {
             //moment.locale('hu')
             return moment(date)
                 .locale(this.$page.props.locale ?? 'hu')
-                .format(format ? format : this.$page.props.auth.user.date_time_format)
+                .format(format ? format : "YYYY. MM. DD hh:mm:ss")
         },
 
         getVersion(){

@@ -157,6 +157,7 @@ export default {
                     subject_id: this.subject ? this.subject.id : null,
                 }
             }).then((response) => {
+                console.log(response)
                 this.logs = response.data.data;
                 this.totalLogs = response.data.total;
             })

@@ -118,6 +118,12 @@ export default {
                     show: true
                 },
                 {
+                    title: 'Services',
+                    icon: 'mdi-toolbox-outline',
+                    route: this.route('services.index'),
+                    url: '/services',
+                    show: this.hasRole('superadmin')
+                }
                     title: 'Autók',
                     icon: 'mdi-car',
                     route: this.route('cars.index'),

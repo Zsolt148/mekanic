@@ -26,8 +26,9 @@ class ServiceSeeder extends Seeder
     {
         $service = Service::updateOrCreate([
                 'created_by' => '1',
-            ], [
-                'name' => 'Példa szolgáltatás'
+                'name' => 'Példa szolgáltatás',
+                'description' => 'Példa szolgáltatás leírása',
+                'comment' => '-',
             ]);
     }
 }

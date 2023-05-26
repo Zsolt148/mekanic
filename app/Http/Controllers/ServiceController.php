@@ -16,4 +16,24 @@ class ServiceController extends Controller
     {
         return Inertia::render('Services/Index');
     }
+
+    public function getTableData(Request $request){
+
+        $perPage = $request->input('per_page');
+        $page = $request->input('page');
+
+        $services = Service::query()
+            ->with('tags')
+            ->withTrashed()
+            ->search($request)
+            ->orderBy('id', 'DESC');
+
+        $invoices = $invoices
+            ->latest()
+            ->paginate($perPage, ['*'], 'page', $page);
+
+        return response()->json([
+            'data' => ServiceResource::collection($services)
+        ]);
+    }
 }

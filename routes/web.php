@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProxyController;
 use App\Http\Controllers\AdminSearchController;
 use App\Http\Controllers\Api\AppSiteSearchController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Api\TagSearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomingInvoiceController;
@@ -45,3 +46,6 @@ Route::get('admins-search', AdminSearchController::class)->name('admins.search')
 // Tags search - TagCombobox.vue
 Route::get('/tags/search/{locale}/{type?}', TagSearchController::class)->name('tags.search');
 
+/* Route::delete('invoices/{invoice}/force-delete', [InvoiceController::class, 'forceDelete'])->withTrashed()->name('invoices.force-delete');
+Route::patch('invoices/{invoice}/restore', [InvoiceController::class, 'restore'])->withTrashed()->name('invoices.restore'); */
+Route::resource('services', ServiceController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');

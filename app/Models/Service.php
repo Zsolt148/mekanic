@@ -21,6 +21,7 @@ class Service extends Model
     protected $fillable = [
         'created_by',
         'name',
+        'description',
         'comment'
     ];
 

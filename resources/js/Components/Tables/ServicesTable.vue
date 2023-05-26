@@ -51,25 +51,19 @@
           <template v-slot:item.name="{ item }">
             <span>
               <b class="table--bold"
-                >{{ item.name }} - {{ trans(item.description) }}</b
+                >{{ item.name }}</b
               >
-              <p
-                v-if="item.causer && item.event != 'login'"
-                class="table--small"
-              >
-                ({{ item.causer }})
-              </p>
             </span>
           </template>
 
-          <template v-slot:item.event="{ item }">
-            <p class="table--field" v-if="item.event">
-              {{ trans(item.event) }}
+          <template v-slot:item.description="{ item }">
+            <p class="table--field" v-if="item.description">
+              {{ trans(item.description) }}
             </p>
           </template>
 
           <template v-slot:item.created_at="{ item }">
-            <p class="table--field" v-if="item.event">
+            <p class="table--field">
               {{ dateFormat(item.created_at) }}
             </p>
           </template>
@@ -95,10 +89,18 @@
         </div>
       </v-col>
     </v-row>
+
+    <services-modal
+            :isVisible="isServiceModalVisible"
+            :log="selectedService"
+            @close="hideServiceModal"
+        />
   </div>
 </template>
 
 <script>
+import ServicesModal from '../../Pages/Services/ServicesModal.vue';
+
 export default {
   data: function () {
     return {
@@ -115,13 +117,19 @@ export default {
       },
       headers: [
         { text: this.trans("Name"), align: "start", value: "name" },
+        { text: this.trans("Description"), align: "start", value: "description" },
+        { text: this.trans("Created At"), align: "start", value: "created_at" },
       ],
     };
   },
 
+  components:{
+    ServicesModal
+  },
+
   methods:{
-    showServiceModal(log) {
-            this.selectedService = log;
+    showServiceModal(service) {
+            this.selectedService = service;
             this.isServiceModalVisible = true;
         },
         hideServiceModal() {
@@ -153,6 +161,10 @@ export default {
                 this.loading = false;
             });
         },
-  }
+  },
+
+  created() {
+        this.getServices();
+    },
 };
 </script>

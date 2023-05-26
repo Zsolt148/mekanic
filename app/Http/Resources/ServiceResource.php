@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Service;
+use App\Models\Activity;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceResource extends JsonResource
@@ -16,10 +17,13 @@ class ServiceResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "description" => __($this->description),
-            "name" => $this->getName($this->resource),
+            'id'=>$this->id,
+            "description" => $this->description,
+            /* "name" => $this->name, */
             'created_at' => $this->created_at,
-            'comment' => $this->comment,
+            /* 'comment' => $this->comment, */
+
+            'class'=>Service::class,
         ];
         /* return array_merge(parent::toArray($request), [
             'name' => $this->tagsForTypeSelect('name')['hu'][0],
@@ -36,7 +40,7 @@ class ServiceResource extends JsonResource
         if($service->subject && isset($service->subject->name)) {
 			$name .= ' - ' . $service->subject->name;
         }
-        // subject is restored
+        /* // subject is restored
         elseif(isset($this->properties['attributes'])) {
             $attributes = $this->properties['attributes'];
 
@@ -51,7 +55,7 @@ class ServiceResource extends JsonResource
             if(isset($attributes['name'])) {
                 $name .= $attributes['name'];
             }
-        }
+        } */
 
         return $name;
     }

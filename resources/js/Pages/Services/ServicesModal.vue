@@ -4,7 +4,6 @@
             <v-card-title>
                 <span>
                     {{service.name}} - {{trans(service.description)}}
-                    <span v-if="service.causer && service.event != 'login'">({{service.causer}})</span>
                 </span>
                 <v-spacer></v-spacer>
                 <div>
@@ -18,60 +17,7 @@
             </v-card-subtitle>
             <v-card-text class="p-4">
                 <v-row class="d-flex flex-column">
-                    <div v-if="service.old_values">
-                        <div class="d-flex changes__table">
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Field')}}</b></span>
-                                <span v-for="(item, name) in service.old_values" v-if="name != 'data'">
-                                    {{trans(name) ? trans(name) : '-'}}
-                                </span>
-                            </div>
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Old data')}}</b></span>
-                                <span v-for="(item, name) in service.old_values" v-if="name != 'data'">
-                                    {{ getValue(item, name) }}
-                                </span>
-                            </div>
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('New data')}}</b></span>
-                                <span v-for="(item, name) in service.new_values" v-if="name != 'data'">
-                                    {{ getValue(item, name) }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-else-if="service.properties.attributes">
-                        <div class="d-flex changes__table">
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Field')}}</b></span>
-                                <span v-for="(item, name) in service.properties.attributes" v-if="name != 'data'">
-                                    {{trans(name) ? trans(name) : '-'}}
-                                </span>
-                            </div>
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Value')}}</b></span>
-                                <span v-for="(item, name) in service.properties.attributes" v-if="name != 'data'">
-                                    {{ getValue(item, name) }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-else-if="service.properties">
-                        <div class="d-flex changes__table">
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Field')}}</b></span>
-                                <span v-for="(item, name) in service.properties">
-                                    {{trans(name) ? trans(name) : '-'}}
-                                </span>
-                            </div>
-                            <div class="d-flex flex-column" cols="4">
-                                <span><b>{{trans('Value')}}</b></span>
-                                <span v-for="(item, name) in service.properties">
-                                    {{ getValue(item, name) }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <div></div>
                 </v-row>
             </v-card-text>
         </v-card>
@@ -80,7 +26,7 @@
 
 <script>
 export default {
-    name: "servicesModal",
+    name: "ServicesModal",
     props: {
         service: Object,
         isVisible: Boolean,

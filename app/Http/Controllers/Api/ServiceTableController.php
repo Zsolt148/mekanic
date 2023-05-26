@@ -30,7 +30,6 @@ class ServiceTableController extends Controller
             $services->where(function (Builder $query) use ($search) {
 				$query
 					->where('name', 'LIKE', '%' . $search . '%')
-					->orWhere('event', 'LIKE', '%' . $search . '%')
 					->orWhere('created_at', 'LIKE', '%' . $search . '%')
 					->orWhere('description', 'LIKE', '%' . $search . '%');
             });

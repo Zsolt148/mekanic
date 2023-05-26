@@ -123,7 +123,8 @@ export default {
                     route: this.route('services.index'),
                     url: '/services',
                     show: this.hasRole('superadmin')
-                }
+                },
+                {
                     title: 'Autók',
                     icon: 'mdi-car',
                     route: this.route('cars.index'),

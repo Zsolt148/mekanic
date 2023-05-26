@@ -31,7 +31,7 @@ class ServiceController extends Controller
             ->search($request)
             ->orderBy('id', 'DESC');
 
-        $invoices = $invoices
+        $services = $services
             ->latest()
             ->paginate($perPage, ['*'], 'page', $page);
 
@@ -50,7 +50,8 @@ class ServiceController extends Controller
         $services = Service::query()->orderBy('name', 'DESC')->get();
 
         return [
-            'service' => $service ? ServiceResource::make($service) : null
+            'service' => $service ? ServiceResource::make($service) : null,
+            'services' => ServiceResource::collection($services)
         ];
     }
 
@@ -67,7 +68,7 @@ class ServiceController extends Controller
         return Inertia::render('Services/Edit', $this->props($service));
     }
 
-    public function update(InvoiceRequest $request, Service $service)
+    public function update(ServiceRequest $request, Service $service)
     {
         $this->save($service, $request);
 
@@ -91,11 +92,13 @@ class ServiceController extends Controller
     {
         $validated = $request->validated();
 
+        $service->created_by = $validated['created_by'];
         $service->name = $validated['name'];
+        $service->comment = $validated['comment'];
+        $service->description = $validated['description'];
         $service->price = $validated['price'];
 
         $service->save();
-
 
         return $service;
     }

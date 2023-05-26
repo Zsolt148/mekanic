@@ -27,9 +27,10 @@ class ServiceRequest extends FormRequest
     {
         return [
             'created_by' => ['required', 'exists:admins,id'],
-            'id' => ['required', 'string'],
             'name' => ['required', 'string'],
-            'price' => ['required', 'float'],
+            'description' => ['required', 'string'],
+            'comment' => ['nullable', 'string'],
+            'price' => ['required', 'numeric'],
         ];
     }
 }

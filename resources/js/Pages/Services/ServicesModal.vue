@@ -22,22 +22,17 @@
       </v-card-subtitle>
       <v-card-text class="p-4">
         <v-row>
-            <v-col>
-          <div
-            style="font-size: 14px; color: black; width: 100%; margin-left: 1em"
-          >
-            {{ trans(service.description) }}
-          </div>
-        </v-col>
-        <v-col sm="3" style="font-size: 16px; color: black; width: 100%; margin-left: 1em">
-            {{ trans("Price") + ": " }}
-            {{ service.price }}
-        </v-col>
+          <v-col cols="12">{{ service.description }}</v-col>
+          <v-col cols="12">{{ service.comment }}</v-col>
+          <v-col cols="12">
+              {{ trans("Price") + ": " }}
+              {{ service.price }} Ft
+          </v-col>
         </v-row>
         <v-row>
-          <v-col sm="2"><v-btn color="orange" @click="edit"> Szerkesztés </v-btn></v-col>
+          <v-col sm="2"><v-btn color="primary" @click="edit">Szerkesztés</v-btn></v-col>
           <v-col sm="2">
-            <v-btn color="red"> Törlés </v-btn>
+            <v-btn color="error"> Törlés </v-btn>
           </v-col>
         </v-row>
       </v-card-text>

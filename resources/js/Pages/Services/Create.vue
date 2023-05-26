@@ -37,13 +37,13 @@ export default({
                 name: null,
                 description: null,
                 comment: null,
+                price: null,
             }),
         }
     },
     methods: {
         submit() {
-            console.log(this.form)
-        this.form.post(this.route('services.store'))
+          this.form.post(this.route('services.store'))
         }
     }
 })

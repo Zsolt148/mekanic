@@ -5,6 +5,7 @@
         <v-text-field
           :disabled="disabled"
           v-model="form.name"
+          :error-messages="form.errors.name"
           :label="trans('Name') + ' *'"
           name="name"
           hide-details="auto"
@@ -18,6 +19,7 @@
         <v-text-field
           :disabled="disabled"
           v-model="form.description"
+          :error-messages="form.errors.description"
           :label="trans('Description')"
           name="description"
           hide-details="auto"
@@ -31,6 +33,7 @@
         <v-text-field
           :disabled="disabled"
           v-model="form.comment"
+          :error-messages="form.errors.comment"
           :label="trans('Comment')"
           name="comment"
           hide-details="auto"
@@ -44,7 +47,9 @@
         <v-text-field
           :disabled="disabled"
           v-model="form.price"
+          :error-messages="form.errors.price"
           :label="trans('Price') + ' *'"
+          suffix="Ft"
           name="price"
           hide-details="auto"
           type="number"
@@ -53,9 +58,9 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col lg="2">
+      <v-col cols="12">
         <v-btn
-          color="green lighten-2"
+          color="primary"
           @click="$emit('submit')"
           elevation="0"
           class="me-3 mt-4"
@@ -65,14 +70,12 @@
           <span v-if="isNew">{{ trans("New service") }}</span>
           <span v-else>{{ trans("Save changes") }}</span>
         </v-btn>
-      </v-col>
-      <v-col sm="2">
         <v-btn
-          color="secondary"
-          filled
-          elevation="0"
-          class="me-3 mt-4"
-          @click="$inertia.visit(route('services.index'))"
+            color="secondary"
+            filled
+            elevation="0"
+            class="me-3 mt-4"
+            @click="$inertia.visit(route('services.index'))"
         >
           {{ trans("Cancel") }}
         </v-btn>

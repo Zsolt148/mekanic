@@ -17,46 +17,12 @@ class ServiceResource extends JsonResource
     {
         return [
             'id'=>$this->id,
+            "created_by" => $this->created_by,
             "description" => $this->description,
             "name" => $this->name,
             'created_at' => $this->created_at,
             'comment' => $this->comment,
             'price' => $this->price,
-
-            'class'=>Service::class,
         ];
-        /* return array_merge(parent::toArray($request), [
-            'name' => $this->tagsForTypeSelect('name')['hu'][0],
-            "description" => __($this->description),
-        ]); */
-    }
-
-    private function getName(Activity $service)
-    {
-		// App\Models\Settings -> Settings
-		$name = trans(last(explode('\\', $service->subject_type)));
-
-        // subcjet is not deleted
-        if($service->subject && isset($service->subject->name)) {
-			$name .= ' - ' . $service->subject->name;
-        }
-        /* // subject is restored
-        elseif(isset($this->properties['attributes'])) {
-            $attributes = $this->properties['attributes'];
-
-            if(isset($attributes['name'])) {
-                $name .= $attributes['name'];
-            }
-        }
-        // subject is deleted
-        elseif(isset($this->properties['old'])) {
-            $attributes = $this->properties['old'];
-
-            if(isset($attributes['name'])) {
-                $name .= $attributes['name'];
-            }
-        } */
-
-        return $name;
     }
 }

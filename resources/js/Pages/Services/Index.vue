@@ -2,7 +2,8 @@
     <app-layout>
         <app-head title="Services" />
         
-        <services-table/>
+        <services-table />
+
     </app-layout>
 </template>
 

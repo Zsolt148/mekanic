@@ -74,7 +74,7 @@
 
           <template v-slot:item.price="{ item }">
             <p class="table--field" v-if="item.price">
-              {{ item.price }}
+              {{ item.price }} Ft
             </p>
           </template>
 
@@ -138,8 +138,8 @@ export default {
           align: "start",
           value: "description",
         },
-        { text: this.trans("Created At"), align: "start", value: "created_at" },
         { text: this.trans("Price"), align: "start", value: "price" },
+        { text: this.trans("Created At"), align: "start", value: "created_at" },
       ],
     };
   },

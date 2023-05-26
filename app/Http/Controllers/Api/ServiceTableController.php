@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ServiceResource;
-use App\Models\Activity;
+use App\Models\Service;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class ServiceTableController extends Controller
 		$name = $request->input('name');
 		$id = $request->input('id');
 
-        $services = Activity::query()
+        $services = Service::query()
 			->when($name && $id, function (Builder $query) use ($name, $id) {
 				return $query
 					->where('name', $name)

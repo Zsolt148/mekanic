@@ -29,6 +29,7 @@ class ServiceSeeder extends Seeder
                 'name' => 'Példa szolgáltatás',
                 'description' => 'Példa szolgáltatás leírása',
                 'comment' => '-',
+                'price' => 12,
             ]);
     }
 }

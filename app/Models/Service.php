@@ -22,7 +22,8 @@ class Service extends Model
         'created_by',
         'name',
         'description',
-        'comment'
+        'comment',
+        'price',
     ];
 
     public function createdBy(): BelongsTo
@@ -34,6 +35,8 @@ class Service extends Model
     public function scopeSearch(Builder $query, Request $request): Builder
     {
         $name = $request->input('name');
+        $description = $request->input('description');
+        $comment = $request->input('comment');
 
 
         if ($name) {

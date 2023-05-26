@@ -34,6 +34,18 @@
           <v-icon>mdi-refresh</v-icon>
         </v-btn>
       </v-col>
+
+      <v-spacer />
+
+      <v-col>
+        <v-btn
+          color="primary"
+          @click="$inertia.visit(route('services.create'))"
+          elevation="0"
+        >
+          {{ trans("New service") }}
+        </v-btn>
+      </v-col>
     </v-row>
 
     <v-row>
@@ -50,15 +62,19 @@
         >
           <template v-slot:item.name="{ item }">
             <span>
-              <b class="table--bold"
-                >{{ item.name }}</b
-              >
+              <b class="table--bold">{{ item.name }}</b>
             </span>
           </template>
 
           <template v-slot:item.description="{ item }">
             <p class="table--field" v-if="item.description">
               {{ trans(item.description) }}
+            </p>
+          </template>
+
+          <template v-slot:item.price="{ item }">
+            <p class="table--field" v-if="item.price">
+              {{ item.price }}
             </p>
           </template>
 
@@ -91,15 +107,15 @@
     </v-row>
 
     <services-modal
-            :isVisible="isServiceModalVisible"
-            :log="selectedService"
-            @close="hideServiceModal"
-        />
+      :isVisible="isServiceModalVisible"
+      :service="selectedService"
+      @close="hideServiceModal"
+    />
   </div>
 </template>
 
 <script>
-import ServicesModal from '../../Pages/Services/ServicesModal.vue';
+import ServicesModal from "../../Pages/Services/ServicesModal.vue";
 
 export default {
   data: function () {
@@ -117,54 +133,61 @@ export default {
       },
       headers: [
         { text: this.trans("Name"), align: "start", value: "name" },
-        { text: this.trans("Description"), align: "start", value: "description" },
+        {
+          text: this.trans("Description"),
+          align: "start",
+          value: "description",
+        },
         { text: this.trans("Created At"), align: "start", value: "created_at" },
+        { text: this.trans("Price"), align: "start", value: "price" },
       ],
     };
   },
 
-  components:{
-    ServicesModal
+  components: {
+    ServicesModal,
   },
 
-  methods:{
+  methods: {
     showServiceModal(service) {
-            this.selectedService = service;
-            this.isServiceModalVisible = true;
-        },
-        hideServiceModal() {
-            this.isServiceModalVisible = false;
-        },
-        handleSearch: _.debounce(function (e) {
-            this.getServices();
-        }, 500),
-        async getServices() {
-            this.loading = true;
-            this.options.page = this.page;
-            await axios.get(this.route('api:services.table'), {
-                params: {
-                    page: this.options.page,
-                    per_page: this.options.servicesPerPage,
-                    search: this.search,
-                    name: this.name ? this.name : null,
-                    id: this.id ? this.id : null,
-                }
-            }).then((response) => {
-                console.log(response)
-                this.services = response.data.data;
-                this.totalServices = response.data.total;
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                this.loading = false;
-            });
-        },
+      this.selectedService = service;
+      this.isServiceModalVisible = true;
+    },
+    hideServiceModal() {
+      this.isServiceModalVisible = false;
+    },
+    handleSearch: _.debounce(function (e) {
+      this.getServices();
+    }, 500),
+    async getServices() {
+      this.loading = true;
+      this.options.page = this.page;
+      await axios
+        .get(this.route("api:services.table"), {
+          params: {
+            page: this.options.page,
+            per_page: this.options.servicesPerPage,
+            search: this.search,
+            name: this.name ? this.name : null,
+            id: this.id ? this.id : null,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          this.services = response.data.data;
+          this.totalServices = response.data.total;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
   },
 
   created() {
-        this.getServices();
-    },
+    this.getServices();
+  },
 };
 </script>

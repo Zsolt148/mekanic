@@ -2,8 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Service;
-use App\Models\Activity;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ServiceResource extends JsonResource
@@ -19,9 +18,10 @@ class ServiceResource extends JsonResource
         return [
             'id'=>$this->id,
             "description" => $this->description,
-            /* "name" => $this->name, */
+            "name" => $this->name,
             'created_at' => $this->created_at,
-            /* 'comment' => $this->comment, */
+            'comment' => $this->comment,
+            'price' => $this->price,
 
             'class'=>Service::class,
         ];

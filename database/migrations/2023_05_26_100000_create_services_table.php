@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('comment');
+            $table->float('price',12,2);
             $table->foreignId('created_by')->constrained('admins');
             $table->softDeletes();
             $table->timestamps();

@@ -61,6 +61,32 @@
                             hide-details="auto" />
                     </v-col>
 
+                    <v-col cols="12" md="6">
+                        <v-text-field 
+                            v-model="chassis_number" 
+                            :disabled="false" 
+                            :placeholder="trans('Chassis number')" 
+                            @input="handleSearch" 
+                            name="chassis_number" 
+                            filled
+                            dense
+                            clearable
+                            hide-details="auto" />
+                    </v-col>
+
+                    <v-col cols="12" md="6">
+                        <v-text-field 
+                            v-model="motor_number" 
+                            :disabled="false" 
+                            :placeholder="trans('Motor number')" 
+                            @input="handleSearch" 
+                            name="motor_number" 
+                            filled
+                            dense
+                            clearable
+                            hide-details="auto" />
+                    </v-col>
+
 
                 </v-row>
             </v-col>
@@ -86,6 +112,14 @@
 
                     <template v-slot:item.license_plate="{ item }">
                         <span class="table--field">{{ item.license_plate }}</span>
+                    </template>
+
+                    <template v-slot:item.chassis_number="{ item }">
+                        <span class="table--field">{{ item.chassis_number }}</span>
+                    </template>
+
+                    <template v-slot:item.motor_number="{ item }">
+                        <span class="table--field">{{ item.motor_number }}</span>
                     </template>
 
                     <template v-slot:item.actions="{ item }">
@@ -181,6 +215,8 @@ export default {
                 { text: this.trans("Brand"), align: "start", value: "brand" },
                 { text: this.trans("Type"), align: "start", value: "type" },
                 { text: this.trans("License plate"), align: "start", value: "license_plate" },
+                { text: this.trans("Chassis number"), align: "start", value: "chassis_number" },
+                { text: this.trans("Motor number"), align: "start", value: "motor_number" },
                 { text: this.trans("Actions"), value: 'actions', sortable: false, align: 'end'},
             ],
             activePicker: null,
@@ -198,6 +234,30 @@ export default {
 
         edit(car) {
             this.$inertia.visit(this.route("cars.edit", { car: car.id }));
+        },
+
+        async deleteItem(item) {
+            if (await this.$refs.confirm.open()) {
+                const resp = await axios.delete(this.route("cars.destroy", {car: item.id}));
+                flash(this, resp.data)
+                await this.getcars();
+            }
+        },
+
+        async forceDeleteItem(item) {
+            if (await this.$refs.confirm.open()) {
+                const resp = await axios.delete(this.route("cars.force-delete", {car: item.id}));
+                flash(this, resp.data)
+                await this.getcars();
+            }
+        },
+
+        async restoreItem(item) {
+            if (await this.$refs.confirm.open()) {
+                const resp = await axios.patch(this.route("cars.restore", {car: item.id}));
+                flash(this, resp.data)
+                await this.getcars();
+            }
         },
 
         showCarModal(car) {
@@ -222,6 +282,8 @@ export default {
                     brand: this.brand,
                     type: this.type,
                     license_plate: this.license_plate,
+                    motor_number: this.motor_number,
+                    chassis_number: this.chassis_number,
                 }
             }).then((response) => {
                 this.cars = response.data.data;

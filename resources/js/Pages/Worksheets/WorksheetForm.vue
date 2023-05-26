@@ -45,6 +45,30 @@
                     />
                 </v-col>
 
+                <v-col cols="12">
+                    <v-autocomplete
+                        v-model="form.services"
+                        :items="services"
+                        :error-messages="form.errors.services"
+                        :placeholder="trans('Start typing to search')"
+                        :label="trans('Szolgáltatás') + '*'"
+                        item-text="name"
+                        item-value="id"
+                        multiple
+                        chips
+                        deletable-chips
+                        persistent-hint
+                        filled
+                        hide-details="auto"
+                        small-chips
+                        clearable
+                    />
+                </v-col>
+
+                <v-col cols="12" v-if="sumPrice">
+                    Összesen: {{ sumPrice }} Ft
+                </v-col>
+
                 <v-col cols="12" class="d-flex justify-space-between">
                     <v-btn
                         color="primary"
@@ -101,6 +125,7 @@ export default {
         },
         types: Array,
         partners: Array,
+        services: Array,
         cars: Array,
         restoreOrDeleteForm: {
             type: Object,
@@ -113,5 +138,15 @@ export default {
     },
 
     emits: ['submit', 'destroy', 'restore'],
+
+    computed: {
+        sumPrice() {
+            let services = this.form.services
+
+            return this.services.filter(f => services.indexOf(f.id) > -1).reduce(function (res, item) {
+                return res + item.price;
+            }, 0);
+        }
+    }
 }
 </script>

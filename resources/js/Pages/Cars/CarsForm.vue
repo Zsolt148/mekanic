@@ -3,12 +3,11 @@
         <v-col cols="12" md="6">
             <v-row>
 
-
                 <v-col cols="12">
                     <v-combobox v-model="selectedPartner" :items="activePartners" :search-input.sync="partnerSearch"
                         :disabled="disabled" :hide-no-data="!partnerSearch" :outlined="false" :loading="isPartnerLoading"
                         :error-messages="form.errors.name" :placeholder="trans('Start typing to search')"
-                        :label="trans('Name') + '*'" @change="onPartnerChange()" item-text="name" item-value="id"
+                        :label="trans('Ügyfél név') + '*'" @change="onPartnerChange()" item-text="name" item-value="id"
                         persistent-hint filled hide-details="auto" small-chips clearable>
                         <template v-slot:no-data>
                             <v-list-item>
@@ -22,7 +21,7 @@
                 </v-col>
 
                 <v-col cols="12">
-                    <v-btn color="error" filled elevation="0" class="mt-4" :disabled="disabled" type="button"
+                    <v-btn color="primary" filled elevation="0" class="mt-4" :disabled="disabled" type="button"
                         @click="toggle = !toggle">
                         {{ trans("Show/hide partner's data") }}
                     </v-btn>
@@ -47,8 +46,8 @@
                     </v-col>
 
                     <v-col cols="12">
-                        <v-text-field v-model="form.city" :disabled="disabled || isCititesDisabled"
-                            :error-messages="form.errors.city" :label="trans('City') + '*'" hide-details="auto" name="zip"
+                        <v-text-field v-model="form.city" :disabled="disabled"
+                            :error-messages="form.errors.city" :label="trans('City') + '*'" hide-details="auto" name="city"
                             filled />
                     </v-col>
 
@@ -166,7 +165,6 @@ export default {
         if (this.isNew) {
             this.partner_name_default = null;
         } else {
-            console.log("ID: " + this.car.partner_id)
             //this.partner_name_default = this.partners[this.car.partner_id];
             this.partner_name_default = this.partners.find((partner) => partner.id == this.car.partner_id).name;
         }
@@ -192,21 +190,10 @@ export default {
         };
     },
     methods: {
-        lookupStartingZip: _.debounce(function () {
-            var app = this;
-            this.form.city = 'Töltés...';
-
-            axios.get('http://hur.webmania.cc/zips/' + app.form.zip + '.json')
-                .then(function (response) {
-                    app.form.city = response.data.zips[0].name;
-                })
-        }, 700),
         save(date) {
             this.$refs.menu.save(date)
         },
         onPartnerChange() {
-            console.log(this.selectedPartner.id);
-            console.log(this.selectedPartner.name);
             if (this.selectedPartner && this.selectedPartner !== null) {
                 if (
                     typeof this.selectedPartner === "string" ||
@@ -226,6 +213,7 @@ export default {
                         this.form.partner_id = partner.id;
                         this.form.name = partner.name;
                         this.form.zip = partner.zip;
+                        this.form.city = partner.city;
                         this.form.address = partner.address;
                         this.form.tax_number = partner.tax_number;
                         this.form.communal_tax_number = partner.communal_tax_number;
@@ -233,23 +221,21 @@ export default {
                 }
             }
         },
-        myFunctionOnLoad: function () {
-            console.log('call on load...');
-            console.log(this.form.partner_id)
-            this.form.partner_id = this.partners.find((partner) => partner.id == this.car.partner_id).id;
-            this.form.name = this.partners.find((partner) => partner.id == this.car.partner_id).name;
-            this.form.zip = this.partners.find((partner) => partner.id == this.car.partner_id).zip;
-            this.form.address = this.partners.find((partner) => partner.id == this.car.partner_id).address;
-            this.form.tax_number = this.partners.find((partner) => partner.id == this.car.partner_id).tax_number;
-            this.form.communal_tax_number = this.partners.find((partner) => partner.id == this.car.partner_id).communal_tax_number;
-        }
+        // myFunctionOnLoad: function () {
+        //     this.form.partner_id = this.partners.find((partner) => partner.id == this.car.partner_id).id;
+        //     this.form.name = this.partners.find((partner) => partner.id == this.car.partner_id).name;
+        //     this.form.zip = this.partners.find((partner) => partner.id == this.car.partner_id).zip;
+        //     this.form.address = this.partners.find((partner) => partner.id == this.car.partner_id).address;
+        //     this.form.tax_number = this.partners.find((partner) => partner.id == this.car.partner_id).tax_number;
+        //     this.form.communal_tax_number = this.partners.find((partner) => partner.id == this.car.partner_id).communal_tax_number;
+        // }
     },
     watch: {
-        'form.zip': function () {
-            if (this.form.zip.length > 3) {
-                this.lookupStartingZip();
-            }
-        },
+        // 'form.zip': function () {
+        //     if (this.form.zip.length > 3) {
+        //         this.lookupStartingZip();
+        //     }
+        // },
         partnerSearch(val) {
             // search input is empty
             if (!val) return;
@@ -304,7 +290,7 @@ export default {
 
     },
     created: function () {
-        this.myFunctionOnLoad()
+        // this.myFunctionOnLoad()
     },
     emits: ['submit', 'destroy', 'restore'],
 }

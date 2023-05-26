@@ -27,13 +27,14 @@ class CarController extends Controller
     public function store(CarRequest $request)
     {
         $this->save(new Car(), $request);
+
         return redirect()->route('cars.index')->with('success', __('Successfully created'));
     }
 
     private function save(Car $car, CarRequest $request): Car
     {
         $validated = $request->validated();
-        if ($validated['partner_id'] != null) {
+        if (isset($validated['partner_id']) && $validated['partner_id'] != null) {
             $partner = Partner::find($validated['partner_id']);
             $partner->name = $validated['name'];
             $partner->zip = $validated['zip'];

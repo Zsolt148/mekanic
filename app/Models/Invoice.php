@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Tags\HasTags;
 
 
 /**
@@ -63,7 +64,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 class Invoice extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory, SoftDeletes, LogsActivity, HasTags;
 
     const PAYMENT_MODES = [
         'transfer' => "Transfer",

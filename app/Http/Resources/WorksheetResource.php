@@ -19,6 +19,8 @@ class WorksheetResource extends JsonResource
             'admin' => AdminResource::make($this->whenLoaded('admin')),
             'partner' => PartnerResource::make($this->whenLoaded('partner')),
             'car' => CarResource::make($this->whenLoaded('car')),
+            'services' => ServiceResource::collection($this->whenLoaded('services')),
+            'service_names' => $this->whenLoaded('services', fn() => $this->services->pluck('name')->join(', ')),
             'type_text' => Worksheet::TYPES[$this->resource->type],
             'created_at_diff' => $this->resource->created_at->diffForHumans()
         ]);

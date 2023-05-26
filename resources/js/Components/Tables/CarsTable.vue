@@ -202,6 +202,8 @@ export default {
         return {
             search: "",
             selectedCar: null,
+            chassis_number: null,
+            motor_number: null,
             isCarModalVisible: false,
             cars: [],
             page: 1,

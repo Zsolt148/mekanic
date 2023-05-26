@@ -76,13 +76,11 @@
                 </v-col>
     
                 <v-col cols="12">
-                    <v-select
+                    <v-text-field
                         v-model="form.city"
-                        :disabled="disabled || isCititesDisabled"
+                        :disabled="disabled"
                         :error-messages="form.errors.city"
                         :label="trans('City') + '*'"
-                        :items="cities"
-                        item-text="name"
                         hide-details="auto"
                         dense
                         name="city"
@@ -603,14 +601,14 @@ export default {
                 this.isLoading = false;
             }, 200);
         },
-        "form.zip": function (newZip) {
-            if (newZip.length === 0) {
-                this.form.city = "";
-            }
-            if (newZip.length > 3) {
-                this.getCities(newZip);
-            }
-        },
+        // "form.zip": function (newZip) {
+        //     if (newZip.length === 0) {
+        //         this.form.city = "";
+        //     }
+        //     if (newZip.length > 3) {
+        //         this.getCities(newZip);
+        //     }
+        // },
     },
     props: {
         form: {
@@ -646,9 +644,9 @@ export default {
     mounted() {
         this.activePartners = this.partners;
         this.selectedPartner = this.partner;
-        if (this.form.zip != null) {
-            this.getCities(this.form.zip);
-        }
+        // if (this.form.zip != null) {
+        //     this.getCities(this.form.zip);
+        // }
         this.onPartnerChange();
     },
 

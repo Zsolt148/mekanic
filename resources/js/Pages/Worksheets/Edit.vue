@@ -17,6 +17,7 @@
             :restore-or-delete-form="restoreOrDeleteForm"
             :types="types"
             :cars="cars"
+            :services="services"
             :partners="partners"
             @submit="submit"
             @destroy="destroy"
@@ -40,6 +41,7 @@ export default {
         'types',
         'cars',
         'partners',
+        'services',
     ],
     data() {
         return {
@@ -49,6 +51,7 @@ export default {
                 partner_id: this.worksheet.partner_id,
                 car_id: this.worksheet.car_id,
                 done_at: this.worksheet.done_at,
+                services: this.worksheet.services ?? [],
             }),
             restoreOrDeleteForm: this.$inertia.form({}),
         };

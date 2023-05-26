@@ -17,6 +17,7 @@
             :types="types"
             :cars="cars"
             :partners="partners"
+            :services="services"
             :is-new="true"
             @submit="submit"
         />
@@ -38,6 +39,7 @@ export default {
         'types',
         'cars',
         'partners',
+        'services',
     ],
     data() {
         return {
@@ -46,6 +48,7 @@ export default {
                 partner_id: "",
                 car_id: "",
                 done_at: "",
+                services: [],
             }),
         };
     },

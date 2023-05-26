@@ -15,8 +15,8 @@ class InvoiceItemResource extends JsonResource
     public function toArray($request)
     {
         return array_merge(parent::toArray($request), [
-            'quantity_unit' => $this->tagsForTypeSelect('quantity_unit'),
-            'quantity_unit_name' => $this->tagsForTypeSelect('quantity_unit')['hu'][0],
+//            'quantity_unit' => $this->tagsForTypeSelect('quantity_unit'),
+//            'quantity_unit_name' => $this->tagsForTypeSelect('quantity_unit'),
             'trashed' => $this->trashed()
         ]);
     }

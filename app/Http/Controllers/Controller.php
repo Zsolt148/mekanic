@@ -31,7 +31,7 @@ abstract class Controller extends BaseController
 	 */
 	public function syncTags(Model $model, iterable $tags, string $type = null): void
 	{
-		if(!method_exists($model, 'syncTagsWithTypeAndLocale')) {
+		if(!method_exists($model, 'syncTagsWithType')) {
 			throw new \Exception(
 				"Function [syncTagsWithTypeAndLocale] does not exists on [" . class_basename($model). "] class. 
 				The model should implement [". class_basename(HasTags::class) ."] trait."
@@ -39,7 +39,7 @@ abstract class Controller extends BaseController
 		}
 
 		foreach($tags as $lang => $tag) {
-			$model->syncTagsWithTypeAndLocale(mapFromSelect($tag), $type, $lang);
+			$model->syncTagsWithType(mapFromSelect($tag), $type);
 		}
 	}
 }

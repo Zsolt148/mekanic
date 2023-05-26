@@ -198,6 +198,7 @@ class InvoiceController extends Controller
                     'gross' => $item["gross"],
             ]);
 			$invoiceItem->createdBy()->associate($validated['created_by']);
+
             $this->syncTags($invoiceItem, $item['quantity_unit'], 'quantity_unit');
         }
 

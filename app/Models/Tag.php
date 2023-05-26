@@ -50,7 +50,7 @@ class Tag extends Model implements Sortable
         'name',
         'slug',
         'type',
-        'locale'
+//        'locale'
     ];
 
     public static function getLocale()
@@ -130,7 +130,7 @@ class Tag extends Model implements Sortable
                 'name' => $name,
                 'slug' => Str::slug($name),
                 'type' => $type,
-                'locale' => $locale
+//                'locale' => $locale
             ]);
         }
 
@@ -145,23 +145,5 @@ class Tag extends Model implements Sortable
     public function setAttribute($key, $value)
     {
         return parent::setAttribute($key, $value);
-    }
-
-    /**
-     * @param string|null $type
-     * @return Collection
-     */
-    public static function tagsGroupByLocale(string | null $type = null): Collection
-    {
-        return self::query()
-            ->when($type, function (Builder $q) use ($type) {
-                $q->withType($type);
-            })
-            ->get()
-            ->groupBy('locale')
-            ->map(function (\Illuminate\Support\Collection $items, string $locale) {
-                return $items->pluck('name')->toArray();
-            })
-            ->toBase();
     }
 }

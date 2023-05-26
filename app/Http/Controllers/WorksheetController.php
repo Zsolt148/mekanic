@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\WorksheetRequest;
 use App\Http\Resources\CarResource;
 use App\Http\Resources\PartnerResource;
+use App\Http\Resources\ServiceResource;
 use App\Http\Resources\WorksheetResource;
 use App\Models\Car;
 use App\Models\Partner;
+use App\Models\Service;
 use App\Models\Worksheet;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -53,7 +55,7 @@ class WorksheetController extends Controller
     private function props(?Worksheet $worksheet = null): array
     {
         $worksheets = Worksheet::query()
-            ->with('car', 'partner', 'admin')
+            ->with('car', 'partner', 'admin', 'services')
             ->latest()
             ->get();
 
@@ -64,10 +66,14 @@ class WorksheetController extends Controller
         $cars = Car::query()
             ->get();
 
+        $services = Service::query()
+            ->get();
+
         return [
             'types' => mapForSelect(Worksheet::TYPES),
-            'worksheet' => $worksheet ? WorksheetResource::make($worksheet) : null,
+            'worksheet' => $worksheet ? WorksheetResource::make($worksheet->load('services')) : null,
             'worksheets' => WorksheetResource::collection($worksheets),
+            'services' => ServiceResource::collection($services),
             'cars' => CarResource::collection($cars),
             'partners' => PartnerResource::collection($partners),
         ];
@@ -78,9 +84,16 @@ class WorksheetController extends Controller
         $validated = $request->validated();
 
         $worksheet->admin()->associate($this->user());
-        $worksheet->fill($validated);
+        $worksheet->fill([
+            'type' => $validated['type'],
+            'partner_id' => $validated['partner_id'],
+            'car_id' => $validated['car_id'],
+            'done_at' => $validated['done_at'],
+        ]);
 
         $worksheet->save();
+
+        $worksheet->services()->sync($validated['services']);
 
         return $worksheet;
     }

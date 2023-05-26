@@ -50,6 +50,10 @@
                         <span class="table--field">{{ item.car.brand }}</span>
                     </template>
 
+                    <template v-slot:item.service_names="{ item }">
+                        <span class="table--field">{{ item.service_names }}</span>
+                    </template>
+
                     <template v-slot:item.created_at="{ item }">
                         <span class="table--field">{{ item.created_at_diff }}</span>
                     </template>
@@ -109,6 +113,7 @@ export default {
                 { text: this.trans("Type"), align: "start", value: "type" },
                 { text: this.trans("Partner"), align: "start", value: "partner_id" },
                 { text: this.trans("Car"), align: "start", value: "car_id" },
+                { text: this.trans("Services"), align: "start", value: "service_names" },
                 { text: this.trans("Done"), align: "start", value: "done_at" },
                 { text: this.trans("Created"), align: "start", value: "created_at" },
                 { text: this.trans("Actions"), value: 'actions', sortable: false, align: 'end'},

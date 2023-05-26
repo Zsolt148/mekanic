@@ -28,6 +28,7 @@ class WorksheetRequest extends FormRequest
             'partner_id' => ['required'],
             'car_id' => ['required'],
             'done_at' => ['nullable'],
+            'services' => ['required', 'array']
         ];
     }
 }

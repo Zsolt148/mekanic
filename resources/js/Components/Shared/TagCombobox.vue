@@ -86,14 +86,14 @@ export default {
             isLoading: false,
             search: null,
             entries: [],
-            vmodel: this.model[this.lang],
+            vmodel: this.model,
             timeout: null,
         }
     },
 
     methods: {
         onChange(items) {
-            this.model[this.lang] = items
+            this.model = items
             this.$emit('update:model', this.model)
         }
     },

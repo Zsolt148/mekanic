@@ -189,7 +189,6 @@ export default {
             menu1: false,
             menu2: false,
             menu3: false,
-            cities: [],
         };
     },
     methods: {

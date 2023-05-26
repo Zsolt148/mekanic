@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <app-head title="Out invoices" />
+        <app-head title="Invoices" />
 
         <invoices-table />
     </app-layout>

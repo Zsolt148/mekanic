@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CarRequest;
 use App\Http\Resources\CarResource;
+use App\Http\Resources\PartnerResource;
 use App\Models\Car;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Partner;
@@ -71,6 +71,7 @@ class CarController extends Controller
     private function props(?Car $car = null): array
     {
         $partners = Partner::query()->orderBy('name', 'DESC')->get();
+
         return [
             'partners' => CarResource::collection($partners),
             'car' => $car ? CarResource::make($car) : null,

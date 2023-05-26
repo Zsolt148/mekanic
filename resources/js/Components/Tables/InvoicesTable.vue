@@ -6,7 +6,7 @@
                     <v-col cols="12" class="pt-0">
                         <div class="table--header">
                             <h1>
-                                {{ trans('Out invoices') }}
+                                {{ trans('Invoices') }}
                             </h1>
 
                             <div>

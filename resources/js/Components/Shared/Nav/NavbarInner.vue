@@ -96,22 +96,29 @@ export default {
                     url: '/admins',
                     show: true
                 },
+                // {
+                //     title: 'Inc. invoices',
+                //     icon: 'mdi-receipt',
+                //     route: this.route('incoming.index'),
+                //     url: '/incoming',
+                //     show: true
+                // },
                 {
-                    title: 'Inc. invoices',
-                    icon: 'mdi-receipt',
-                    route: this.route('incoming.index'),
-                    url: '/incoming',
+                    title: 'Munkalapok',
+                    icon: 'mdi-clipboard-text-outline',
+                    route: this.route('worksheets.index'),
+                    url: '/worksheets',
                     show: true
                 },
                 {
-                    title: 'Out invoices',
+                    title: 'Számlák',
                     icon: 'mdi-receipt',
                     route: this.route('invoices.index'),
                     url: '/invoices',
                     show: true
                 },
                 {
-                    title: 'Cars',
+                    title: 'Autók',
                     icon: 'mdi-car',
                     route: this.route('cars.index'),
                     url: '/cars',

@@ -19,7 +19,6 @@ class CarResource extends JsonResource
     {
         return array_merge(parent::toArray($request), [
             'trashed' => $this->trashed(),
-            'cars' => CarResource::collection($this->whenLoaded('cars')),
         ]);
     }
 }

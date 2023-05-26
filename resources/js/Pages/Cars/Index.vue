@@ -1,19 +1,19 @@
 <template>
     <app-layout>
-        <app-head title="Invoices" />
+        <app-head title="Cars" />
 
-        <invoices-table />
+        <cars-table />
     </app-layout>
 </template>
 
 <script>
 
 import AppLayout from "@/Layouts/AppLayout";
-import InvoicesTable from "@/Components/Tables/InvoicesTable";
+import CarsTable from "@/Components/Tables/CarsTable";
 
 export default {
-    name: "InvoicesIndex",
-    components: { AppLayout, InvoicesTable },
+    name: "CarsIndex",
+    components: { AppLayout, CarsTable },
     data(){
         return{
             tab: null,

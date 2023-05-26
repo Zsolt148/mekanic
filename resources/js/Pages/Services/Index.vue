@@ -1,7 +1,7 @@
 <template>
-    <app-layut>
+    <app-layout>
         <app-head title="Services" />
-    </app-layut>
+    </app-layout>
 </template>
 
 <script>

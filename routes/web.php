@@ -35,8 +35,8 @@ Route::patch('invoices/{invoice}/restore', [InvoiceController::class, 'restore']
 Route::resource('invoices', InvoiceController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
 
 //Cars
-Route::delete('cars/force-delete', [CarController::class, 'forceDelete'])->withTrashed()->name('cars.force-delete');
-Route::patch('cars/restore', [CarController::class, 'restore'])->withTrashed()->name('cars.restore');
+Route::delete('cars/{car}/force-delete', [CarController::class, 'forceDelete'])->withTrashed()->name('cars.force-delete');
+Route::patch('cars/{car}/restore', [CarController::class, 'restore'])->withTrashed()->name('cars.restore');
 Route::resource('cars', CarController::class)->only('index', 'create', 'edit', 'store', 'update', 'destroy');
 
 if(AdminFeatures::hasLogs()) {

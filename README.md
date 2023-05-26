@@ -27,6 +27,8 @@
 
 11. Run ```php artisan serve``` in a separate console for local development.
 
+12. If you experienced a problem converting the zip code city, start the chrome browser with the following command ```chrome.exe  --disable-site-isolation-trials --disable-web-security --user-data-dir="<<location of the files>>"``` This bug lives only in a development environment because of localhost domain (CORS)
+
 ### Admin ###
 As long as the application is running local mode the developer account(s) are seeded automatically.
 

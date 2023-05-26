@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Partner;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class CarController extends Controller
 {
@@ -72,13 +73,14 @@ class CarController extends Controller
         $partners = Partner::query()->orderBy('name', 'DESC')->get();
 
         return [
+            'partners' => CarResource::collection($partners),
             'car' => $car ? CarResource::make($car) : null,
-            'partners' => PartnerResource::collection($partners),
         ];
     }
 
     public function edit(Request $request, Car $car)
     {
+        log::info($car);
         return Inertia::render('Cars/Edit', $this->props($car));
     }
 
@@ -104,5 +106,47 @@ class CarController extends Controller
         ]);
     }
 
+    public function destroy(Request $request, Car $car)
+    {
+        $car->delete();
+
+        if($request->wantsJson()) {
+            return response()
+                ->json(['success', __('Successfully deleted')]);
+        }
+
+        return redirect()->route('cars.index')->with('success', __('Successfully deleted'));
+    }
+
+    public function forceDelete(Request $request, Car $car)
+    {
+        $car->forceDelete();
+
+        if($request->wantsJson()) {
+            return response()
+                ->json(['success', __('Successfully deleted')]);
+        }
+
+        return redirect()->route('cars.index')->with('success', __('Successfully deleted'));
+    }
+
+    public function restore(Request $request, Car $car)
+    {
+        $car->restore();
+
+        if($request->wantsJson()) {
+            return response()
+                ->json(['success', __('Successfully restored')]);
+        }
+
+        return redirect()->route('cars.index')->with('success', __('Successfully restored'));
+    }
+
+    public function update(CarRequest $request, Car $car)
+    {
+        $this->save($car, $request);
+
+        return redirect()->route('cars.index')->with('success', __('Successfully updated'));
+    }
 
 }

@@ -1084,6 +1084,17 @@
     "Around the camera column": "Kamera oszlop körül",
     "Blowing through panels with a leaf blower": "Panelek átfújása lombfúvóval",
     "Check with informants that the camera image and production are good": "Infósokkal egyeztetni, hogy kamerakép és termelés is jó",
+    "Add new car": "Új autó hozzáadása",
+    "Cars": "Autók",
+    "License plate": "Rendszám",
+    "Mileage": "Kilóméter óra állás",
+    "Motor number": "Motorkód",
+    "Vintage": "Évjárat",
+    "Technical inspection validity": "Műszaki vizsga érvényessége",
+    "Chassis number": "Alvázszám",
+    "Back to cars": "Vissza az autókhoz",
+    "Show/hide partner's data": "Partner adatok megjelenítése/elrejtése",
+    "Edit car": "Autó szerkesztése"
     "Worksheet": "Munkalap",
     "Worksheets": "Munkalapok"
 }

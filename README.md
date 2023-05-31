@@ -1,5 +1,13 @@
 # MEKANIC development guide #
 
+### The team ###
+
+Budai Zsolt
+Balog Olivér
+Kávai Konrád
+Séley János
+Szeker Szabolcs
+
 ### Configuration ###
 
 - NodeJS https://nodejs.org/en/

@@ -118,7 +118,7 @@ export default {
                     show: true
                 },
                 {
-                    title: 'Services',
+                    title: 'Szolgáltatások',
                     icon: 'mdi-toolbox-outline',
                     route: this.route('services.index'),
                     url: '/services',

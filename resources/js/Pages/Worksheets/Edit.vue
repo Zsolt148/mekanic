@@ -59,7 +59,7 @@ export default {
 
     methods: {
         submit() {
-            this.form.post(this.route("worksheets.store"));
+            this.form.patch(this.route("worksheets.update", this.worksheet.id));
         },
         destroy(sheetId) {
             this.restoreOrDeleteForm.delete(this.route("worksheets.destroy", sheetId))

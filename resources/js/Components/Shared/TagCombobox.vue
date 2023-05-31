@@ -100,7 +100,7 @@ export default {
 
     watch: {
         lang(val) {
-            this.vmodel = this.model[val]
+            this.vmodel = this.model
             this.entries = []
         },
         search (val) {

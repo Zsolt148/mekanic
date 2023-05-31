@@ -19,9 +19,9 @@ class IncomingInvoiceResource extends JsonResource
         return array_merge(parent::toArray($request), [
             'payment_mode_name' => __(IncomingInvoice::PAYMENT_MODES[$this->payment_mode]),
             'issuer' => $this->tagsForTypeSelect('issuer'),
-            'issuer_name' => $this->tagsForTypeSelect('issuer')['hu'][0],
+            'issuer_name' => $this->tagsForTypeSelect('issuer'),
             'type' => $this->tagsForTypeSelect('type'),
-            'type_name' => $this->tagsForTypeSelect('type')['hu'][0],
+            'type_name' => $this->tagsForTypeSelect('type'),
             'gross_text' => getCurrencyFormat($this->gross),
             'net_text' => getCurrencyFormat($this->net),
             'trashed' => $this->trashed()
